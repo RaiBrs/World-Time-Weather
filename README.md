@@ -14,12 +14,12 @@ Aplicação web simples em Flask que permite ao usuário pesquisar qualquer cida
 - Python 3
 - Flask
 - API OpenWeatherMap
-- HTML, CSS puro
+- HTML e CSS 
 - JavaScript para atualização do relógio em tempo real
 
 ## Como executar
 
-1. Clone este repositório:
+Clone este repositório:
 
 ```bash
 git clone https://github.com/RaiBrs/World-Time-Weather.git
