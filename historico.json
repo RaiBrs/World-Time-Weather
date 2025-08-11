@@ -1,0 +1,26 @@
+[
+  {
+    "cidade": "São Paulo",
+    "pais": "BR",
+    "clima": "Nuvens dispersas",
+    "temperatura": 11,
+    "horario_local": "22:58:18",
+    "data_busca": "2025-08-10 22:58:18"
+  },
+  {
+    "cidade": "Moscow",
+    "pais": "RU",
+    "clima": "Nublado",
+    "temperatura": 16.08,
+    "horario_local": "05:11:51",
+    "data_busca": "2025-08-10 23:11:51"
+  },
+  {
+    "cidade": "Miami",
+    "pais": "US",
+    "clima": "Nublado",
+    "temperatura": 26.31,
+    "horario_local": "22:12:16",
+    "data_busca": "2025-08-10 23:12:16"
+  }
+]

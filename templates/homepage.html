@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Clima & Fuso Horário</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
+
+</head>
+<body>
+  <div class="container">
+    <h1>Clima & Fuso Horário</h1>
+
+    <form class="search-box" method="GET" action="/buscar">
+      <input type="text" name="local" placeholder="Digite uma cidade..." required />
+      <button type="submit">Pesquisar</button>
+    </form>
+
+    <div class="result">
+      {% if erro %}
+        <p class="erro">{{ erro }}</p>
+      {% endif %}
+
+      {% if resultado %}
+        <h2>{{ resultado.cidade }}, {{ resultado.pais }}</h2>
+        <p>Clima: {{ resultado.clima }}</p>
+        <p>Temperatura: {{ resultado.temperatura }} °C</p>
+        <p>Horário local: <span id="clock">{{ resultado.horario }}</span></p>
+      {% endif %}
+    </div>
+
+    {% if historico %}
+      <div class="historico">
+        <h3>Histórico</h3>
+        <ul>
+          {% for item in historico %}
+            <li>{{ item.cidade }}, {{ item.pais }} - {{ item.horario }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+
+  <script>
+    const clock = document.getElementById('clock');
+    if (clock) {
+      let timeParts = clock.textContent.split(':');  // ["HH", "MM", "SS"]
+
+      let now = new Date();
+      now.setHours(parseInt(timeParts[0], 10));
+      now.setMinutes(parseInt(timeParts[1], 10));
+      now.setSeconds(parseInt(timeParts[2], 10));
+
+      function updateClock() {
+        now.setSeconds(now.getSeconds() + 1);
+
+        let h = now.getHours().toString().padStart(2, '0');
+        let m = now.getMinutes().toString().padStart(2, '0');
+        let s = now.getSeconds().toString().padStart(2, '0');
+
+        clock.textContent = `${h}:${m}:${s}`;
+      }
+
+      setInterval(updateClock, 1000);
+    }
+  </script>
+</body>
+</html>
