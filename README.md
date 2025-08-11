@@ -1,4 +1,4 @@
-# World-Time-Weather
+# World Time Weather
 
 Aplicação web simples em Flask que permite ao usuário pesquisar qualquer cidade do mundo e visualizar o clima atual e o fuso horário local. A aplicação é minimalista, sem frameworks CSS externos, focada em simplicidade e usabilidade.
 
